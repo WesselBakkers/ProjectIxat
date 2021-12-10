@@ -1,0 +1,56 @@
+﻿<Window x:Class="Ixat_Taxi.ChauffeurOntkoppel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ixat_Taxi"
+        mc:Ignorable="d"
+        Title="ChauffeurOntkoppel" Height="750" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel>
+            <TextBlock Text="Chauffeur ontkoppelen" FontSize="45" Margin="15,0,250,0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Image Source="Assets/error.png" Width="50" x:Name="btnRefresh" VerticalAlignment="Center" HorizontalAlignment="Right" Visibility="Hidden"/>
+            <Button x:Name="btnClose" Content="Terug" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Height="35" Margin="0,0,15,0" FontSize="18" Click="BtnClose_Click"/>
+        </DockPanel>
+
+        <DockPanel Margin="15,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1">
+            <TextBlock Text="Selecteerd een aanvraag" FontSize="30" FontWeight="Medium"/>
+            <ComboBox x:Name="cmbAanvraag" Margin="20,0,0,0" Width="200" Height="30" SelectionChanged="CmbAanvraag_SelectionChanged"></ComboBox>
+        </DockPanel>
+
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Margin="15">
+                <TextBlock Text="Aanvraaggegevens" FontSize="30" FontWeight="Bold" Margin="0,0,0,15"/>
+                <TextBox x:Name="txtAantalPassagiers" Text="Aantal passagiers" FontSize="18" IsReadOnly="True" Margin="0,0,0,15"/>
+                <TextBox x:Name="txtLaadruimte" Text="Laadruimte" FontSize="18" IsReadOnly="True" Margin="0,0,0,15"/>
+                <TextBox x:Name="txtTelefoon" Text="Telefoon" FontSize="18" IsReadOnly="True" Margin="0,0,0,15"/>
+                <TextBox x:Name="txtDatumTijd" Text="Datum en tijd" FontSize="18" IsReadOnly="True" Margin="0,0,0,15"/>
+                <TextBox x:Name="txtEmail" Text="Email" FontSize="18" IsReadOnly="True" Margin="0,0,0,15"/>
+                <DockPanel>
+                    <TextBlock Text="Gekoppelde chauffeur" FontSize="18" FontWeight="Bold" Margin="0,0,10,15"/>
+                    <ComboBox x:Name="cmbChauffeur" FontSize="18" Margin="0,0,0,15"/>
+                </DockPanel>
+                <Button x:Name="btnOntkoppel" Content="Ontkoppel" FontSize="18" Background="GreenYellow" Margin="0,0,0,15" Click="BtnOntkoppel_Click"/>
+            </StackPanel>
+
+            <Grid Grid.Column="1">
+                <WebBrowser x:Name="wbMaps" Source="https://www.google.nl/maps"/>
+            </Grid>
+        </Grid>
+
+
+    </Grid>
+</Window>

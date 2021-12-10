@@ -1,0 +1,60 @@
+﻿<Window x:Class="Ixat_Taxi.ChauffeurAanvragenWindowxaml"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ixat_Taxi"
+        mc:Ignorable="d"
+        Title="ChauffeurAanvragenWindowxaml" Height="750" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel>
+            <TextBlock Text="Chauffeuraanvragen" FontSize="45" Margin="15,0,250,0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Image Source="Assets/error.png" Width="50" x:Name="btnRefresh" VerticalAlignment="Center" HorizontalAlignment="Right" Visibility="Hidden"/>
+            <Button x:Name="btnClose" Content="Terug" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Height="35" Margin="0,0,15,0" FontSize="18" Click="BtnClose_Click"/>
+        </DockPanel>
+
+        <DockPanel Margin="15,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1">
+            <TextBlock Text="Selecteerd een aanvraag" FontSize="30" FontWeight="Medium"/>
+            <ComboBox x:Name="cmbAanvraag" Margin="20,0,0,0" Width="200" Height="30" SelectionChanged="CmbAanvraag_SelectionChanged"></ComboBox>
+        </DockPanel>
+
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Margin="15">
+                <TextBlock Text="Gegevens" FontSize="30" FontWeight="Bold" Margin="0,0,0,15"/>
+                <TextBox x:Name="txtNaam" Text="Naam" FontSize="18" IsReadOnly="True" Margin="0,0,0,15"/>
+                <TextBox x:Name="txtMobiel" Text="Mobiel" FontSize="18" IsReadOnly="True" Margin="0,0,0,15"/>
+                <TextBox x:Name="txtEmail" Text="Email" FontSize="18" IsReadOnly="True" Margin="0,0,0,15"/>
+                <ComboBox x:Name="cmbRijbewijs" FontSize="18" IsReadOnly="True" Margin="0,0,0,15"/>
+                <TextBox x:Name="txtMerkAuto" Text="Merk auto" FontSize="18" IsReadOnly="True" Margin="0,0,0,15"/>
+                <TextBox x:Name="txtTypeAuto" Text="Type auto" FontSize="18" IsReadOnly="True" Margin="0,0,0,15"/>
+                <TextBox x:Name="txtKenteken" Text="Kenteken" FontSize="18" IsReadOnly="True" Margin="0,0,0,15"/>
+                <TextBox x:Name="txtAantalPassagiers" Text="Aantal passagiers" IsReadOnly="True" FontSize="18" Margin="0,0,0,15"/>
+                <TextBox x:Name="txtLaadruimte" Text="Laadruimte (in liters)" IsReadOnly="True" FontSize="18" Margin="0,0,0,15"/>
+                <TextBox x:Name="txtSchadeVrij" Text="Schade vrije jaren" IsReadOnly="True" FontSize="18" Margin="0,0,0,15"/>
+                <Button x:Name="btnAccepteer" Content="Accepteren" FontSize="18" Background="GreenYellow" Margin="0,0,0,15" Click="BtnAccepteer_Click"/>
+                <Button x:Name="btnWeiger" Content="Weigeren" FontSize="18" Background="OrangeRed" Margin="0,0,0,15" Click="BtnWeiger_Click"/>
+            </StackPanel>
+
+            <Grid Grid.Column="1" Background="Orange">
+                <ComboBox x:Name="cmbKlant" Visibility="Hidden"/>
+                <Image Source="Assets/IxatLogo_wit.png" Width="300"/>
+
+            </Grid>
+        </Grid>
+
+
+    </Grid>
+</Window>
